@@ -1,18 +1,41 @@
-# Salesforce DX Project: Next Steps
+# Mock Field Reader
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+A while ago we explored the [Mock Data Layer Pattern](https://github.com/gitmatheus/Mock-Data-Layer-Pattern), which allows us to mock virtually any relationships between records within your tests. This is especially handy when trying to improve the performance of these tests - more details on [matheus.dev](https://matheus.dev/unit-test-mock-relationships-apex/).
 
-## How Do You Plan to Deploy Your Changes?
+Now, how can we mock formula fields and <strong>non-writable</strong> child relationships if they are, well, non-writable fields? 
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## Mocking field values using a Mock Field Reader
 
-## Configure Your Salesforce DX Project
+For this exploratory project, we will use a *not-so-realistic* scenario with parent and child accounts, but the intent is to create a test for the Account Trigger Handler that will use a <strong>Mock Field Reader</strong> and a <strong>Mock Data Layer</strong>.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+The <strong>Mock Field Reader</strong> will be used so we can mock two <strong>non-writable</strong> fields on the Account object.
 
-## Read All About It
+- `Child_Accounts__r`, a non-writable child relationship on the parent record
+- `External_URL__c`, a formula field on the child record
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+The trigger handler logic will update the following field:
+- `Parent.Latest_Child_URL__c`
+
+Based on the following formula field:
+- `Child.External_URL__c`
+
+---
+
+## Files used in this project
+
+```
+force-app
+    main
+        default
+            classes
+                ◦ AccountTriggerHandler.cls
+                ◦ AccountTriggerHandlerTest
+                ◦ FieldReader
+                ◦ IFieldReader
+                ◦ MockFieldReader
+                ◦ TestUtils.cls
+            triggers
+                ◦ AccountTrigger.trigger
+```
+
+---
