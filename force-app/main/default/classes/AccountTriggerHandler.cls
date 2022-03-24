@@ -28,8 +28,6 @@ public class AccountTriggerHandler {
         // Retrieves the map of parent and child records from the data layer
         Map<ID, Account> parentAndChildMap = 
             dataLayer.getParentAndChildAccountsMap(newRecordsMap.keySet());
-        
-            System.debug('parentAndChildMap: ' + parentAndChildMap);
 
         for (Account newRecord : newRecords) {
             Account oldRecord = oldRecordsMap.get(newRecord.Id);
@@ -43,8 +41,6 @@ public class AccountTriggerHandler {
                 List<Account> childRecords =
                     fieldReader.getFieldRecords(parentAndChildAccount, 'Child_Accounts__r');
 
-                System.debug('childRecords: ' + childRecords);
-
                 if (childRecords != null && !childRecords.isEmpty()) {    
                     Account latestChild = childRecords[0];
                     
@@ -52,8 +48,6 @@ public class AccountTriggerHandler {
                     // External_URL__c is a formula field (nonwritable string)
                     newRecord.Latest_Child_URL__c = 
                         (String)fieldReader.getFieldValue(latestChild, 'External_URL__c');
-                    
-                        System.debug('newRecord.Latest_Child_URL__c: ' + newRecord.Latest_Child_URL__c);
                 } 
             }
         }
