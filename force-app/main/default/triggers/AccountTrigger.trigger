@@ -1,9 +1,5 @@
-trigger AccountTrigger on Account (after insert, after update) {
+trigger AccountTrigger on Account (before update) {
     AccountTriggerHandler handler = new AccountTriggerHandler();
-
-    if (Trigger.isBefore && Trigger.isInsert) {
-        handler.beforeInsert(Trigger.new);
-    }
 
     if (Trigger.isBefore && Trigger.isUpdate) {
         handler.beforeUpdate(

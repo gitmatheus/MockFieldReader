@@ -2,7 +2,16 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>External_URL__c</fullName>
     <externalId>false</externalId>
-    <formula>Website + &quot;/&quot; + External_ID__c</formula>
+    <formula>IF( AND(
+       ISBLANK(Website),
+       ISBLANK(Parent_Account__r.Website)
+    ),
+    &quot;&quot;,
+    IF( NOT(ISBLANK(Parent_Account__r.Website)),
+        Parent_Account__r.Website + &quot;/&quot; + External_ID__c,
+        Website + &quot;/&quot; + External_ID__c
+    )
+)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>External URL</label>
     <required>false</required>
