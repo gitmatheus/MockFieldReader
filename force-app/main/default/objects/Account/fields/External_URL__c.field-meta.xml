@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Parent_Account_URL__c</fullName>
+    <fullName>External_URL__c</fullName>
     <externalId>false</externalId>
-    <formula>Parent.Website</formula>
+    <formula>Website + &quot;/&quot; + External_ID__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <label>Parent Account URL</label>
+    <label>External URL</label>
     <required>false</required>
     <type>Text</type>
     <unique>false</unique>
