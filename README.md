@@ -106,7 +106,7 @@ In the <a href="https://github.com/gitmatheus/MockFieldReader" target="_blank" r
 
 ````
 
-And in the <strong>AccountTriggerHandlerTest</strong> you can see how these read-only fields can be mocked:
+And in the <strong>AccountTriggerHandlerTest</strong> you can see how these read-only fields can be mocked, using the method `addValueToField:
 
 ````
     // Snippet from AccountTriggerHandlerTest
