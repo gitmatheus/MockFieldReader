@@ -9,7 +9,7 @@
 
 A while ago we explored the [Mock Data Layer Pattern](https://github.com/gitmatheus/Mock-Data-Layer-Pattern), which allows us to mock virtually any relationships between records within your tests. This is especially handy when trying to improve the performance of these tests - more details on [matheus.dev](https://matheus.dev/unit-test-mock-relationships-apex/).
 
-Now, how can we mock formula fields and <strong>read-only</strong> child relationships if they are, well, non-writable fields? 
+Now, how can we mock formula fields and <strong>read-only</strong> child relationships if they are, well, read-only fields? 
 
 ## 🤔 Mocking values in read-only fields using a Mock Field Reader
 
