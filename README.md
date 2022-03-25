@@ -3,21 +3,21 @@
 <img alt="apex_code_blocks" src="https://user-images.githubusercontent.com/5275754/160202862-e45a2578-de54-4c35-846e-4bdfa9de8f00.jpeg" width="70%"/>
 </p>
 
-<p align="center">Learn how to use dependency injection to mock non-writable fields, such as formula fields and child relationships in your tests.</p>
+<p align="center">Learn how to use dependency injection to mock read-only fields, such as formula fields and child relationships in your tests.</p>
 
 </br>
 
 A while ago we explored the [Mock Data Layer Pattern](https://github.com/gitmatheus/Mock-Data-Layer-Pattern), which allows us to mock virtually any relationships between records within your tests. This is especially handy when trying to improve the performance of these tests - more details on [matheus.dev](https://matheus.dev/unit-test-mock-relationships-apex/).
 
-Now, how can we mock formula fields and <strong>non-writable</strong> child relationships if they are, well, non-writable fields? 
+Now, how can we mock formula fields and <strong>read-only</strong> child relationships if they are, well, non-writable fields? 
 
 ## 🤔 Mocking values in read-only fields using a Mock Field Reader
 
 For this exploratory project, we will use a *not-so-realistic* scenario with parent and child accounts, but the intent is to create a test for the Account Trigger Handler that will use a <strong>Mock Field Reader</strong> and a <strong>Mock Data Layer</strong>.
 
-The <strong>Mock Field Reader</strong> will be used so we can mock two <strong>non-writable</strong> fields on the Account object.
+The <strong>Mock Field Reader</strong> will be used so we can mock two <strong>read-only</strong> fields on the Account object.
 
-- `Child_Accounts__r`, a non-writable child relationship on the parent record
+- `Child_Accounts__r`, a read-only child relationship on the parent record
 - `External_URL__c`, a formula field on the child record
 
 The trigger handler logic will update the following field:
@@ -106,7 +106,7 @@ In the <a href="https://github.com/gitmatheus/MockFieldReader" target="_blank" r
 
 ````
 
-And in the <strong>AccountTriggerHandlerTest</strong> you can see how these non-writable fields can be mocked:
+And in the <strong>AccountTriggerHandlerTest</strong> you can see how these read-only fields can be mocked:
 
 ````
     // Snippet from AccountTriggerHandlerTest
@@ -131,6 +131,6 @@ And in the <strong>AccountTriggerHandlerTest</strong> you can see how these non-
     );
 ````
 
-With this code and the Mock Field Reader, it becomes easy to mock non-writable fields used in the tests. 
+With this code and the Mock Field Reader, it becomes easy to mock read-only fields used in the tests. 
 
 I hope that helps!
