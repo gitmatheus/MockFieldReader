@@ -42,66 +42,6 @@ force-app
 
 <h3>Show me the code!</h3>
 
-First, let's create an interface with the required methods for the Field Reader: 
-
-````
-public interface IFieldReader {
-    Object getFieldValue(SObject record, String fieldName);
-    SObject getFieldRecord(SObject record, String fieldName);
-    List<SObject> getFieldRecords(SObject record, String fieldName);
-}
-````
-
-
-Using this interface, let's create a class that reads values from a <code>SObject</code> record:
-
-````
-public class FieldReader implements IFieldReader {
-    
-    // Retrieves a value from a field, as an object
-    public Object getFieldValue(SObject record, String fieldName) {
-        return record.get(fieldName);
-    }
-
-    // Retrieves a value from a field, as a SObject
-    public SObject getFieldRecord(SObject record, String fieldName) {
-        return record.getSObject(fieldName);
-    }
-
-    // Retrieves a value from a field, as a List of SObject
-    public List<SObject> getFieldRecords(SObject record, String fieldName) {
-        return record.getSObjects(fieldName);
-    }
-}
-````
-
-Also, using this interface, the class `MockFieldReader` will non-writable fields to be mocked, like a child relationship or formula fields.
-
-````
-public class MockFieldReader implements IFieldReader {
-    // Map of value stored in a field by Id
-    private Map<Id, Map<String, Object>> fieldValuesByIdMap = new Map<Id, Map<String, Object>>();
-    
-    public Object getFieldValue(SObject record, String fieldName) {
-      ... 
-    }
-
-     // Get a value of a field as an SObject
-     public SObject getFieldRecord(SObject record, String fieldName) {
-        return (SObject)getFieldValue(record, fieldName);
-    }
-
-    // Get a value of a field as a List of SObjects
-    public List<SObject> getFieldRecords(SObject record, String fieldName) {
-        return (List<SObject>)getFieldValue(record, fieldName);
-    }
-
-    // Adds a value to a field by Id
-    public void addValueToField(SObject record, String field, Object value) {
-        ...
-    }
-}
-````
 
 <h4>Getters</h4>
 
