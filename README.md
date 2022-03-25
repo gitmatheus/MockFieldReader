@@ -11,7 +11,7 @@ A while ago we explored the [Mock Data Layer Pattern](https://github.com/gitmath
 
 Now, how can we mock formula fields and <strong>non-writable</strong> child relationships if they are, well, non-writable fields? 
 
-## Mocking field values using a Mock Field Reader
+## 🤔 Mocking values in read-only fields using a Mock Field Reader
 
 For this exploratory project, we will use a *not-so-realistic* scenario with parent and child accounts, but the intent is to create a test for the Account Trigger Handler that will use a <strong>Mock Field Reader</strong> and a <strong>Mock Data Layer</strong>.
 
