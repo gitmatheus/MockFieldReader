@@ -28,14 +28,14 @@ force-app
     main
         default
             classes
-                ◦ AccountTriggerHandler.cls
+                ◦ AccountTriggerHandler
                 ◦ AccountTriggerHandlerTest
                 ◦ FieldReader
                 ◦ IFieldReader
                 ◦ MockFieldReader
-                ◦ TestUtils.cls
+                ◦ TestUtils
             triggers
-                ◦ AccountTrigger.trigger
+                ◦ AccountTrigger
 ```
 
 ---
