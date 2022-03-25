@@ -1,4 +1,11 @@
-# Mock Field Reader
+<h1 align="center">Mock Field Reader</h1>
+<p align="center">
+<img alt="apex_code_blocks" src="https://user-images.githubusercontent.com/5275754/160202862-e45a2578-de54-4c35-846e-4bdfa9de8f00.jpeg" width="70%"/>
+</p>
+
+<p align="center">Learn how to use dependency injection to mock non-writable fields, such as formula fields and child relationships in your tests.</p>
+
+</br>
 
 A while ago we explored the [Mock Data Layer Pattern](https://github.com/gitmatheus/Mock-Data-Layer-Pattern), which allows us to mock virtually any relationships between records within your tests. This is especially handy when trying to improve the performance of these tests - more details on [matheus.dev](https://matheus.dev/unit-test-mock-relationships-apex/).
 
@@ -21,7 +28,7 @@ Based on the following formula field:
 
 ---
 
-## Files used in this project
+## ⚙️ Files used in this project
 
 ```
 force-app
@@ -40,7 +47,7 @@ force-app
 
 ---
 
-<h3>Show me the code!</h3>
+<h3>⚡️ Show me the code!</h3>
 
 
 <h4>Getters</h4>
