@@ -52,23 +52,23 @@ force-app
 
 <h4>Getters</h4>
 
-Some things to notice here:
+To respect the injected dependency, these methods must be present on both the real instance of the field reader ( `FieldReader` ) and the mock instance of the field reader ( `MockFieldReader` ).
 
 <code>public Object getFieldValue(SObject record, String fieldName)</code>
 
-This method is the one used to retrieve the mock values of formula fields. It returns an <code>Object</code> that can later be casted as different types, such as <code>String</code>, <code>Number</code>, <code>Id</code>, etc. 
+This method is used to retrieve the mock values of formula fields. It returns an <code>Object</code> that can later be casted as different types, such as <code>String</code>, <code>Number</code>, <code>Id</code>, etc. 
 
 <code>public SObject getFieldRecord(SObject record, String fieldName)</code>
 
-This method is the one used to retrieve the mock values that represent a single record. It returns an <code>SObject</code>.
+This method is used to retrieve the mock values that represent a single record. It returns an <code>SObject</code>.
 
 <code>public List<SObject> getFieldRecords(SObject record, String fieldName)</code>
 
-This method is the one used to retrieve the mock values that represent a list of records, such as a child relationship. It returns a list of <code>SObjects</code>.
+This method is used to retrieve the mock values that represent a list of records, such as a child relationship. It returns a list of <code>SObjects</code>.
 
 <h4>Setter</h4>
 
-There's only one method used to set the values:
+There's only one method used to set the values, and it's only present on the mock instance of the field reader ( `MockFieldReader` ).
 
 <code>public void addValueToField(SObject record, String field, Object value)</code>
 
