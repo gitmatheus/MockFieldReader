@@ -1,5 +1,5 @@
 @IsTest(isParallel=true)
-public class AccountTriggerHandlerTest {
+private class AccountTriggerHandlerTest {
     private static MockDataLayer mockDataLayer;
     private static AccountTriggerHandler testedClass;
     private static MockFieldReader mockFieldReader;
