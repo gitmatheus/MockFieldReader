@@ -76,7 +76,7 @@ This method adds the field/value pair to a map of mocked values, indexed by the 
 
 <h4>Examples</h4>
 
-In the <a href="https://github.com/gitmatheus/MockFieldReader" target="_blank" rel="noopener">repository on Github</a> you will find a trigger handler class and its respective test class with the usage of this Mock Field Reader. 
+In <a href="https://github.com/gitmatheus/MockFieldReader" target="_blank" rel="noopener">this repository</a> you will find a trigger handler class and its respective test class with the usage of this Mock Field Reader. 
 
 <strong>Snippet from the AccountTriggerHandler</strong>: pay attention to how the following methods are being used:
 
